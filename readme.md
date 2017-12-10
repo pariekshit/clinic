@@ -1,4 +1,3 @@
-# Spring PetClinic Sample Application git
 
 
 ## Understanding the Spring Petclinic application with a diagrams.
