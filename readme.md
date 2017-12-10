@@ -1,6 +1,5 @@
 
 
-## Understanding the Spring Petclinic application with a diagrams.
 <a href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">See the presentation here</a>
 
 ## Running petclinic locally
