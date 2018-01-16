@@ -11,7 +11,19 @@ import hudson.EnvVars
 import groovy.json.JsonSlurperClassic
 import groovy.json.JsonBuilder
 import groovy.json.JsonOutput
+import groovy.json.*
 import java.net.URL
+
+println (pwd())
+void getItemData(String item) {
+    def jsonSlurper = new JsonSlurper()
+    def reader = new BufferedReader(new InputStreamReader(new FileInputStream("test.json"),"UTF-8"))
+    data = jsonSlurper.parse(reader)  
+    data.TESTS.each { println  it."$item" }
+}
+
+getItemData("MEMBER_ADDRESS")
+
  
 try {
 node {
