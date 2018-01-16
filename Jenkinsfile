@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper;
 
 def jsonSluper = new JsonSlurper() ;
-def obj = readFileFromWorkspace('test.json');
+def obj = readFile('test.json');
 
 println (obj);
 
