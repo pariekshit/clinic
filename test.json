@@ -1,0 +1,16 @@
+{"deployEnv": 
+      {
+        "local": {
+          "name": "<EndPoint Name>",
+          "url": "< xxxx. kp.org>"
+         
+        },
+        
+        "local1": {
+          "name": "<EndPoint Name>",
+          "url": "< xxxx. kp.org>"
+        }
+        }
+      
+      }
+    
