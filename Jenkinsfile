@@ -1,23 +1,13 @@
-import groovy.json.JsonSlurper;
+#!/bin/groovy
 
-def jsonSluper = new JsonSlurper() ;
-def obj = readFile "${env.WORKSPACE}/test.json";
+def envs = "a\nb\nc";
 
-println (obj);
-
-def parsedData = jsonSlurper.parse(obj);
-
-println(parsedData);
-
-def env = "local\ndev10\ndev20"
-
-
-pipeline {
-  agent any
-  parameters {
-        choice(choices: env, name: 'env', description: 'How should I greet the world?')
-    }
-  stages {
+properties([
+   parameters([
+      choice(choices: envs, description: 'Please select an environment', name: 'Env')
+   ])
+])
+stages {
     stage('SCM') {
       steps {
         sh 'pwd'
@@ -28,10 +18,4 @@ pipeline {
         sh 'echo "Build Sucessful"'
       }
     }
-    stage('Deploy') {
-      steps {
-        sh 'echo "Deployed Sucessfully"'
-      }
-    }
-  }
-}
+
