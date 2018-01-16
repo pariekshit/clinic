@@ -1,5 +1,16 @@
+import groovy.json.JsonSlurper;
+
+def jsonSluper = new JsonSlurper() 
+def obj = new BufferedReader(
+              new FileReader("/home/mohamed/twitterUser.json"))
+
+def parsedData = jsonSlurper.parse(obj)
+
+println(parsedData)
 
 def env = "local\ndev10\ndev20"
+
+
 pipeline {
   agent any
   parameters {
@@ -8,7 +19,7 @@ pipeline {
   stages {
     stage('SCM') {
       steps {
-        sh 'echo "Github checkout"'
+        sh 'pwd'
       }
     }
     stage('Build') {
