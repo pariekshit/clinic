@@ -1,4 +1,10 @@
-println new ProcessBuilder('sh','-c',' du -ah --max-depth=5 /var/jenkins_home/workspace | sort -k 1 -h -r | head -n 30').redirectErrorStream(true).start().text
+def sout = new StringBuffer(), serr = new StringBuffer()
+ 
+def proc ='cat test.json'.execute()
+ 
+proc.consumeProcessOutput(sout, serr)
+proc.waitForOrKill(1000)
+println sout
 
 pipeline {
   agent any
