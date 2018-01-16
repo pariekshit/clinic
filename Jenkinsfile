@@ -10,7 +10,7 @@ properties([
             script: [
                 $class: 'GroovyScript', 
                 fallbackScript: '', 
-                '''// Find relevant AMIs based on their name
+                script:'''// Find relevant AMIs based on their name
                     def sout = new StringBuffer(), serr = new StringBuffer()
                     def proc = "cat ./test.json".execute()
 	            proc.consumeProcessOutput(sout, serr)
