@@ -1,12 +1,13 @@
 import groovy.json.JsonSlurper;
 
-def jsonSluper = new JsonSlurper() 
-def obj = new BufferedReader(
-              new FileReader("/home/mohamed/twitterUser.json"))
+def jsonSluper = new JsonSlurper() ;
+def obj = readFileFromWorkspace('test.json');
 
-def parsedData = jsonSlurper.parse(obj)
+println (obj);
 
-println(parsedData)
+def parsedData = jsonSlurper.parse(obj);
+
+println(parsedData);
 
 def env = "local\ndev10\ndev20"
 
