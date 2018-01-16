@@ -18,4 +18,4 @@ stages {
         sh 'echo "Build Sucessful"'
       }
     }
-
+}
