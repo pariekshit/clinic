@@ -7,7 +7,7 @@ properties([
       choice(choices: envs, description: 'Please select an environment', name: 'Env')
    ])
 ])
-stages {
+node { 
     stage('SCM') {
       steps {
         sh 'pwd'
