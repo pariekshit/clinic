@@ -9,12 +9,12 @@ properties([
 ])
 node { 
     stage('SCM') {
-      steps {
+      step {
         sh 'pwd'
       }
     }
     stage('Build') {
-      steps {
+      step {
         sh 'echo "Build Sucessful"'
       }
     }
