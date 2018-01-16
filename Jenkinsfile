@@ -10,31 +10,15 @@ properties([
             script: [
                 $class: 'GroovyScript', 
                 fallbackScript: '', 
-                script: '''// Find relevant AMIs based on their name
-                    return "a\nb\nc" '''
+                '''// Find relevant AMIs based on their name
+                    def sout = new StringBuffer(), serr = new StringBuffer()
+                    def proc = "cat ./test.json".execute()
+	            proc.consumeProcessOutput(sout, serr)
+                    proc.waitForOrKill(10000)
+                    return sout.tokenize()'''
+
             ]
         ]
     ])
 ])
 
-pipeline {
-    agent any
-    stages {
-        stage("Release scope") {
-            steps {
-                script {
-                    // Prepare a list and write to file
-                    sh "echo \"patch\nminor\nmajor\" > ${WORKSPACE}/list"
-
-                    // Load the list into a variable
-                    env.LIST = readFile (file: "${WORKSPACE}/list")
-
-                    // Show the select input
-                    env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
-                            parameters: [choice(name: 'RELEASE_SCOPE', choices: env.LIST, description: 'What is the release scope?')]
-                }
-                echo "Release scope selected: ${env.RELEASE_SCOPE}"
-            }
-        }
-    }
-}
