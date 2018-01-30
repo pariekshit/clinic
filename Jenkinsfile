@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  parameters {
-        choice(choices: env, name: 'env', description: 'How should I greet the world?')
-    }
   stages {
     stage('SCM') {
       steps {
